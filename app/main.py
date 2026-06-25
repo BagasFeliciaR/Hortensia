@@ -1,9 +1,3 @@
-from app.database.database import engine
-from app.database.base import Base
+from app.discord.bot import run
 
-import app.models
-
-
-Base.metadata.create_all(bind=engine)
-
-print("Database OK")
+run()

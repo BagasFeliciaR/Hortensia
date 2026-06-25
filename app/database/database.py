@@ -1,15 +1,15 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-DATABASE_URL = "postgresql+psycopg2://felix:cihuyyy@localhost/bb_platform"
+from app.config.settings import settings
 
 engine = create_engine(
-    DATABASE_URL,
-    pool_pre_ping=True
+    settings.DATABASE_URL,
+    pool_pre_ping=True,
 )
 
 SessionLocal = sessionmaker(
+    bind=engine,
     autocommit=False,
     autoflush=False,
-    bind=engine
 )
